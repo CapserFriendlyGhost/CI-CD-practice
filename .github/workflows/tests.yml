@@ -1,8 +1,11 @@
-name: Test Project
-run-name: ${{ github.actor }} is learning GitHub Actions
-on: [push]
+name: CI
+on: push
 jobs:
-  run-eslint:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - run: lint
+      - uses: actions/checkout@v2
+      - name: Install modules
+        run: yarn
+      - name: Run ESLint
+        run: eslint . --ext .js,.jsx,.ts,.tsx
