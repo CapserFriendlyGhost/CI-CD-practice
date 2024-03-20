@@ -1,0 +1,8 @@
+name: Test Project
+run-name: ${{ github.actor }} is learning GitHub Actions
+on: [push]
+jobs:
+  run-eslint:
+    runs-on: ubuntu-latest
+    steps:
+      run: lint
